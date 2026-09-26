@@ -114,7 +114,12 @@ def compute_n_step_returns(
         R_T = next_value.
     """
     # ===================== YOUR CODE HERE (Part 1) =====================
-    raise NotImplementedError("Implement compute_n_step_returns")
+    returns = torch.empty_like(rewards)
+    running_return = next_value
+    for step in reversed(range(rewards.shape[0])):
+        running_return = rewards[step] + gamma * (1.0 - dones[step]) * running_return
+        returns[step] = running_return
+    return returns
     # ===================================================================
 
 
@@ -132,7 +137,8 @@ def compute_policy_loss(
     *ascent*.
     """
     # ===================== YOUR CODE HERE (Part 2) =====================
-    raise NotImplementedError("Implement compute_policy_loss")
+    weights = returns - values if use_baseline else returns
+    return -(logprobs * weights.detach()).mean()
     # ===================================================================
 
 
