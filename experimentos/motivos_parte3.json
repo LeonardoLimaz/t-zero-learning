@@ -1,0 +1,26 @@
+[
+  {
+    "case": "sac-reuse2",
+    "key": "sac.updates_per_step",
+    "old": 1,
+    "new": 2,
+    "registered_utc": "2026-10-15T13:37:06.769993+00:00",
+    "reason": "sac-base-s1, passo 10.201: q_minus_return=-107,0, retorno100=99,8. Hipótese: mais ajuste do crítico por amostra pode reduzir o atraso inicial de Q; custa tempo."
+  },
+  {
+    "case": "sac-early",
+    "key": "sac.learning_starts",
+    "old": 5000,
+    "new": 1000,
+    "registered_utc": "2026-10-15T13:37:06.769993+00:00",
+    "reason": "sac-base-s1: até 5.000 passos só há ações aleatórias, e aos 10.201 retorno100=99,8. Antecipar o aprendizado libera 4.000 passos adicionais de interação guiada dentro do orçamento curto."
+  },
+  {
+    "case": "sac-qslow",
+    "key": "sac.q_lr",
+    "old": 0.001,
+    "new": 0.0003,
+    "registered_utc": "2026-10-15T13:37:06.769993+00:00",
+    "reason": "sac-base-s1, passo 10.201: alpha=0,105 após começar em 1; entropy=-2,50 ante alvo=-3. Diminuir q_lr testa adaptação menos rápida; este parâmetro controla tanto Q quanto alpha, então o experimento não isola o otimizador da temperatura."
+  }
+]

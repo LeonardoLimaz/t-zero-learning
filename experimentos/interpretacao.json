@@ -1,0 +1,12 @@
+{
+  "part3": "Reuso2 elevou a avaliação média a 2692,1, mas o ganho de 1025,8 foi menor que a amplitude de 1933,8 da referência, com faixas sobrepostas. O treino não melhorou (1246,7 vs 1301,3) e o tempo médio subiu de 28,8 para 60,3 min. Os outros ajustes também não separaram o efeito da variação; mantive sac-base.",
+  "comparison_outcome": "Em 98.304 passos, SAC teve 1439,8/1489,2 contra 384,5/384,9 do PPO, confirmando a previsão amostral. A ordem se inverteu no tempo comum, como previsto. SAC fez 94,9 mil passos dos críticos, além dos do ator; PPO fez 7680 minibatches conjuntos. Redes de 256 vs 64 e vetorização de 1 vs 4 envs também pesam. Updates2 custou o dobro do tempo sem ganho consistente.",
+  "fixed_outcome": "O erro médio |H+3| nos logs foi 0,65 vs 0,32, confirmando a previsão de entropia; a avaliação foi 2343,7 vs 1998,1, com faixas sobrepostas, mas o treino 1013,7 vs 1499,8 não ficou semelhante. Meu raciocínio ignorou que o autotune começa com alpha=1, enquanto 0,065 fixo muda exploração e replay desde o início.",
+  "single_outcome": "Q-retorno médio nos logs foi +240,3 vs -23,9 no controle (cauda 80-100 mil: +436,5 vs +23,5), avaliação 876,2 vs 1998,1 e quedas máximas de treino 159,6/426,8 vs 35,6/20,2; viés, menor retorno e instabilidade previstos confirmaram-se nesta amostra de duas seeds.",
+  "mechanism": {
+    "replay": "A vantagem do SAC por passos aparece na Fig. 3 junto com mais otimizações. O buffer permite cerca de 245 participações por transição nos minibatches de Q, reaproveitando dados de políticas anteriores; PPO usa dez passagens por amostra. Esses contadores comprovam reuso, sem isolar seu ganho causal.",
+    "actor": "rsample permite que o gradiente de Q atravesse a ação até média e desvio da gaussiana; a correção de tanh mantém a log-densidade correspondente. O teste de gradiente passou. A aprendizagem observada é compatível com esse mecanismo, sem uma ablação que quantifique seu efeito isolado.",
+    "entropy": "Alpha fixo dobrou o erro de entropia (0,65 vs 0,32) e reduziu o retorno de treino; a avaliação determinística não acompanhou essa queda. A Fig. 2 sustenta o papel de adaptação da exploração, sem provar superioridade geral do autotune com duas seeds.",
+    "critics": "Q1 no lugar do mínimo elevou o viés e provocou quedas maiores (Fig. 2). O mínimo limita o otimismo que realimenta alvo e ator. A ablação isola essa escolha conservadora; Q2 continua sendo atualizado no laço."
+  }
+}

@@ -1,0 +1,4 @@
+# Install in a separate environment from the course's pinned training SDK.
+wandb==0.30.0
+wandb-workspaces==0.4.11
+python-dotenv==1.1.1

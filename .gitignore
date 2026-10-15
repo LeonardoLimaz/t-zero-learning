@@ -218,3 +218,11 @@ algorithms/dqn_solution.py
 *_solution.py
 
 docs/plans
+
+# Local SAC assignment measurements and rendered report artifacts
+/experimentos/resultados/
+/experimentos/publicacao.json
+/experimentos/wandb_access.py
+/output/
+/tmp/
+/tmp-pytest-sac*/

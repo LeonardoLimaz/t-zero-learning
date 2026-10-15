@@ -1,0 +1,14 @@
+{
+  "registered_utc": "2026-10-15T15:02:40.874977+00:00",
+  "final_case": "sac-base",
+  "alpha_choice": {
+    "value": 0.065,
+    "tail_median": 0.06467476487159729,
+    "tail_min": 0.04902956634759903,
+    "tail_max": 0.07650522887706757,
+    "source_steps": "80.000-100.000, seeds 1/2/3"
+  },
+  "fixed": "Com alpha fixo próximo da mediana final do SAC escolhido, espero retorno parecido ao final, mas maior desvio de entropia em relação a -3 durante o aprendizado; sem autotune o coeficiente não reage à política.",
+  "single": "Ao substituir min(Q1,Q2) por Q1, espero q_minus_return mais positivo e maior instabilidade/menor retorno. Essa previsão pode falhar no orçamento curto: Q inicialmente subestima, e a política visitada também muda.",
+  "comparison": "Espero que o SAC alcance maior retorno por passo devido ao replay e às atualizações frequentes, mas que o PPO processe passos muito mais rápido. No intervalo de tempo comum, o PPO pode estar à frente. Usarei as seeds 1/2 já medidas do SAC escolhido e duas novas seeds do PPO com o comando sem ajuste do enunciado."
+}

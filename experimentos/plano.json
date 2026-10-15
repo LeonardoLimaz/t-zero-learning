@@ -1,0 +1,128 @@
+[
+  {
+    "phase": "sanity",
+    "case": "sac-pendulum",
+    "config": "sac_pendulum",
+    "seed": 1
+  },
+  {
+    "phase": "baseline",
+    "case": "sac-base",
+    "config": "sac_hopper",
+    "seed": 1
+  },
+  {
+    "phase": "baseline",
+    "case": "sac-base",
+    "config": "sac_hopper",
+    "seed": 2
+  },
+  {
+    "phase": "baseline",
+    "case": "sac-base",
+    "config": "sac_hopper",
+    "seed": 3
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-reuse2",
+    "config": "sac_hopper_reuse2",
+    "seed": 1
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-reuse2",
+    "config": "sac_hopper_reuse2",
+    "seed": 2
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-reuse2",
+    "config": "sac_hopper_reuse2",
+    "seed": 3
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-early",
+    "config": "sac_hopper_early",
+    "seed": 1
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-early",
+    "config": "sac_hopper_early",
+    "seed": 2
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-early",
+    "config": "sac_hopper_early",
+    "seed": 3
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-qslow",
+    "config": "sac_hopper_qslow",
+    "seed": 1
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-qslow",
+    "config": "sac_hopper_qslow",
+    "seed": 2
+  },
+  {
+    "phase": "candidates",
+    "case": "sac-qslow",
+    "config": "sac_hopper_qslow",
+    "seed": 3
+  },
+  {
+    "phase": "followups",
+    "case": "sac-fixed",
+    "config": "sac_hopper_fixed_alpha",
+    "seed": 1
+  },
+  {
+    "phase": "followups",
+    "case": "sac-fixed",
+    "config": "sac_hopper_fixed_alpha",
+    "seed": 2
+  },
+  {
+    "phase": "followups",
+    "case": "sac-single",
+    "config": "sac_hopper_single_q",
+    "seed": 1
+  },
+  {
+    "phase": "followups",
+    "case": "sac-single",
+    "config": "sac_hopper_single_q",
+    "seed": 2
+  },
+  {
+    "phase": "followups",
+    "case": "ppo-hopper",
+    "config": "ppo_pendulum",
+    "seed": 1,
+    "overrides": [
+      "env_id=Hopper-v5",
+      "total_timesteps=100000",
+      "ppo_continuous_action.gamma=0.99",
+      "track=true"
+    ]
+  },
+  {
+    "phase": "followups",
+    "case": "ppo-hopper",
+    "config": "ppo_pendulum",
+    "seed": 2,
+    "overrides": [
+      "env_id=Hopper-v5",
+      "total_timesteps=100000",
+      "ppo_continuous_action.gamma=0.99",
+      "track=true"
+    ]
+  }
+]

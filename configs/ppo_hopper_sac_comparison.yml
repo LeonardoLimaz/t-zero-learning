@@ -1,0 +1,26 @@
+# Exact Part 5 CLI overrides applied to ppo_pendulum.
+algorithm: ppo_continuous_action
+env_id: Hopper-v5
+seed: 1
+cuda: false
+total_timesteps: 100000
+num_envs: 4
+track: true
+capture_video: true
+video_every_global_steps: 250000
+video_length_seconds: 8.0
+save_model: true
+checkpoint_every: 25000
+network: ContinuousActorCritic
+network_kwargs:
+  activation: Tanh
+  hidden_layers_size: 64
+  use_obs_norm: true
+ppo_continuous_action:
+  learning_rate: 0.001
+  num_steps: 1024
+  gamma: 0.99
+  gae_lambda: 0.95
+  num_minibatches: 32
+  update_epochs: 10
+  ent_coef: 0.0
